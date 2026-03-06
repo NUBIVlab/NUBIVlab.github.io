@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="HyperColorization Project Page">
+  <meta property="og:title" content="HyperColorization Project Page"/>
+  <meta property="og:description" content="HyperColorization Project Page"/>
+  <meta property="og:url" content="https://mehmetkeremaydin.github.io/hypercolorization/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/banner_img.jpg" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="HyperColorization Project Page">
+  <meta name="twitter:description" content="HyperColorization Project Page">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/banner_twitter.jpg">
+  <meta name="twitter:card" content="HyperColorization">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="HyperColorization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>HyperColorization</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">HyperColorization: Propagating spatially sparse noisy spectral clues over hyperspectral images</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://www.mkaydin.xyz/" target="_blank">M. Kerem Aydin</a><sup>1</sup>,</span>
+                <span class="author-block">
+                  <a href="https://www.qiguo.org/" target="_blank">Qi Guo</a><sup>2</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://www.alexander.vision/" target="_blank">Emma Alexander</a><sup>1</sup></span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>: Northwestern University Computer Science<br> <sup>2</sup>: Purdue University Electrical and Computer Engineering</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://opg.optica.org/oe/fulltext.cfm?uri=oe-32-7-10761&id=547804 " target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="https://opticapublishing.figshare.com/ndownloader/files/44981263" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/NUBIVlab/HyperColorization" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/5478909" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/teaser.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Our framework reconstructs a dense hyperspectral image from a grayscale guide image and spatially sparse noisy spectral clues with the simple premise that pixels with similar monochromatic illuminance should have similar spectral reflectance.  
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Hyperspectral cameras face challenging spatial-spectral resolution trade-offs and are more affected by shot noise than RGB photos taken over the same total exposure time. Here, we present a colorization algorithm to reconstruct hyperspectral images from a grayscale guide image and spatially sparse spectral clues. We demonstrate that our algorithm generalizes to lower dimensional models for hyperspectral images, and show that colorizing in a low-rank space reduces compute time and the impact of shot noise. To enhance robustness, we incorporate guided sampling, edge-aware filtering, and dimensionality estimation techniques. Our method surpasses previous algorithms in various performance metrics, including SSIM, PSNR, GFC, and EMD, which we propose as valuable metrics for characterizing hyperspectral image quality. Collectively, these findings provide a promising avenue for overcoming the time-space-wavelength resolution trade-off by reconstructing a dense hyperspectral image from samples obtained by whisk or push broom scanners, as well as computational imaging systems. 
+          </p>
+          <!--
+          <img src="static/images/intro_fig.png" alt="HyperColorization Framework Flowchart"/>
+          <div class="subtitle has-text-justified">
+              HyperColorization simplified pipeline with an example image from <a href="https://color2.psych.upenn.edu/hyperspectral/bearfruitgray/bearfruitgray.html" target="_blank">Bear & Fruit dataset</a>. We use a monochromatic image to guide a whisk/push broom scanner or a computational imager to collect spatially sparse spectral samples. These noisy samples are used to estimate the best colorization dimension. Finally, the sparse samples are densified using an optimization-based spectral sample propagation algorithm.
+          -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container"><h2 class="title">Comparison to Other Hybrid Camera Systems</h2></div>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+      <div class="item">
+
+        <img src="static/images/comphybridfull.png" alt="Spatial Comparison of HyperColorization to SASSI and Cao et al."/>
+        <h2 class="subtitle has-text-centered">
+          (a) Three test images from (a.1) Harvard, (a.2) KAIST, and (a.3) ICVL datasets. In (a.1) and (a.2), HyperColorization was performed on the low dimensional learned color space, while, in (a.3), HyperColorization was performed on all 519 channels. (b) Visual comparison of spatial reconstructions of hybrid camera systems. SASSI and Cao et al. parameters were set to maximize PSNR (SASSI rank 1, Cao et al. filter sizes 31 with spatial variance of 21 and spectral variance of 0.03, set by grid search) but still result in obvious artifacts.
+        </h2>
+      </div>
+      <div class="item">
+
+        <img src="static/images/comp2.jpg" alt="Spectral Comparison of HyperColorization to SASSI and Cao et al. Table comparing results of HyperColorization to SASSI and Cao et al over a dataset."/>
+        <h2 class="subtitle has-text-centered">
+         
+       </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+End image carousel -->
+
+<!-- Paper poster -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title">Poster</h2>
+      </div>
+      <iframe  src="static/pdfs/AydinGuoAlexander_ICCP2023.pdf" width="100%" height="725">
+          </iframe>
+        
+      </div>
+    </div>
+  </section>
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title">Bibtex</h2>
+      </div>
+      <pre><code>
+        @article{Aydin:24,
+        author = {M. Kerem Aydin and Qi Guo and Emma Alexander},
+        journal = {Opt. Express},
+        keywords = {Computational imaging; Hyperspectral imaging; Image quality; Imaging systems; Shot noise; Spatial resolution},
+        number = {7},
+        pages = {10761--10776},
+        publisher = {Optica Publishing Group},
+        title = {HyperColorization: propagating spatially sparse noisy spectral clues for reconstructing hyperspectral images},
+        volume = {32},
+        month = {Mar},
+        year = {2024},
+        url = {https://opg.optica.org/oe/abstract.cfm?URI=oe-32-7-10761},
+        doi = {10.1364/OE.508017},
+      }
+      </code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
