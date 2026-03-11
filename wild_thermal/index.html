@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Thermal is Always Wild: Characterizing and Addressing Challenges in Thermal-Only Novel View Synthesis. CVPR 2025.">
+  <meta name="keywords" content="Thermal, Novel View Synthesis, 3D Gaussian Splatting, NUBIVLab, Computer Vision, CVPR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thermal is Always Wild — Thermal-Only Novel View Synthesis</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png" type="image/png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Thermal is Always Wild: Characterizing and Addressing Challenges in Thermal-Only Novel View Synthesis</h1>
+          <p class="publication-venue">CVPR, 2026</p>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.mkeremaydin.com/">M. Kerem Aydin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://vishwa91.github.io/">Vishwanath Saragadam</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Northwestern University,</span>
+            <span class="author-block"><sup>2</sup>University of California, Riverside</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/NUBIVlab/wild_thermal"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Models Link (Google Drive). -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-google-drive"></i>
+                  </span>
+                  <span>Models</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Thermal cameras provide reliable visibility in darkness and adverse conditions, but
+            thermal imagery remains significantly harder to use for novel view synthesis (NVS) than
+            visible-light images. This difficulty stems primarily from two characteristics of
+            affordable thermal sensors. First, thermal images have extremely low dynamic range,
+            which weakens appearance cues and limits the gradients available for optimization.
+            Second, thermal data exhibit rapid frame-to-frame photometric fluctuations together with
+            slow radiometric drift, both of which destabilize correspondence estimation and create
+            high-frequency floater artifacts during view synthesis, particularly when no RGB
+            guidance (beyond camera pose) is available. Guided by these observations, we introduce
+            a lightweight preprocessing and splatting pipeline that expands usable dynamic range and
+            stabilizes per-frame photometry. Our approach achieves state-of-the-art performance
+            across thermal-only NVS benchmarks, without requiring any dataset-specific tuning.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Video Results</h2></div>
+      <div class="video-selector">
+        <div class="main-video-box video-wrapper-16x9">
+          <video id="main-display-video" controls autoplay muted loop playsinline>
+            <source src="./static/videos/mvtv_human0.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="thumbnail-row">
+          <button type="button" class="thumbnail is-selected" data-video="./static/videos/mvtv_human0.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/mvtv_human0.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">MVTV - Human0</span>
+          </button>
+          <button type="button" class="thumbnail" data-video="./static/videos/TINSD_UAV2.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/TINSD_UAV2.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">TI-NSD - UAV2</span>
+          </button>
+          <button type="button" class="thumbnail" data-video="./static/videos/lin_sink.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/lin_sink.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">Lin et al. - Sink</span>
+          </button>
+          <button type="button" class="thumbnail" data-video="./static/videos/msx_ebike.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/msx_ebike.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">MSX - EBike</span>
+          </button>
+          <button type="button" class="thumbnail" data-video="./static/videos/tmix_lion.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/tmix_lion.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">T.Mix - Lion</span>
+          </button>
+          <button type="button" class="thumbnail" data-video="./static/videos/mvtv_mason.mp4">
+            <span class="thumbnail-video video-wrapper-16x9">
+              <video muted playsinline preload="metadata">
+                <source src="./static/videos/mvtv_mason.mp4" type="video/mp4">
+              </video>
+            </span>
+            <span class="thumbnail-caption">MVTV - Mason</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Poster</h2>
+        <div class="publication-poster">
+          <a href="./static/images/poster.pdf">
+            <img src="./static/images/poster.png" alt="Coming Soon." />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{aydin2026thermal,
+      author={Aydin, M. Kerem and Saragadam, Vishwanath and Alexander, Emma},
+      title={Thermal is Always Wild: Characterizing and Addressing Challenges in Thermal-Only Novel View Synthesis},
+      booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+      year={2026}
+  }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+          This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the&nbsp;<a href="https://nerfies.github.io" target="_blank">Nerfies</a>&nbsp;project page.
+          You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+          Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
