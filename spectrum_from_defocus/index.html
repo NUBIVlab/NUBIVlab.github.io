@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Spectrum from Defocus (SfD): fast hyperspectral imaging with chromatic focal stack.">
+  <meta name="keywords" content="Spectrum from Defocus, hyperspectral imaging, chromatic aberration, focal stack, computational imaging">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spectrum from Defocus: Fast Spectral Imaging with Chromatic Focal Stack</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- Replace with your lab logo (e.g. favicon.ico or favicon.png) for the browser tab icon -->
+  <link rel="icon" href="./static/images/icon.png">
+  <!-- Preload teaser video for smooth playback on first view -->
+  <link rel="preload" href="./static/videos/teaser.mp4" as="video" type="video/mp4">
+  <!-- Force browser to request RGB result image early -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.27.0/plotly.min.js"></script>
+  <script src="./static/js/results.js"></script>
+  <script>
+    (function() {
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        || (navigator.maxTouchPoints && window.matchMedia('(max-width: 640px)').matches);
+      document.write('<script src="./static/js/optical-diagram' + (isMobile ? '-mobile' : '') + '.js"><\/script>');
+    })();
+  </script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Spectrum from Defocus: Fast Spectral Imaging with Chromatic Focal Stack</h1>
+          <div class="is-size-5 publication-venue">CVPR, 2026</div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.mkeremaydin.com/">M. Kerem Aydin</a><sup>1,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://yichunhung.github.io/">Yi-Chun Hung</a><sup>1,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.dolby.com">Jaclyn Pytlarz</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.qiguo.org/">Qi Guo</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Northwestern University,</span>
+            <span class="author-block"><sup>2</sup>Dolby Laboratories, Inc.,</span>
+            <span class="author-block"><sup>3</sup>Purdue University</span>
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/files/paper_highres.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>High-res (27 MB)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/files/paper_lowres.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Low-res (1 MB)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/files/supplementary.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supp. (135 MB)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/XXXX.XXXXX"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/NUBIVlab/spectrum_from_defocus"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/NUBIVlab/spectrum_from_defocus/releases"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-google-drive"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" class="teaser-video" autoplay muted loop playsinline preload="auto" fetchpriority="high" style="max-width: 100%; border-radius: 8px;">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">SfD</span> achieves state-of-the-art hyperspectral imaging with two off-the-shelf lenses,
+        a grayscale sensor, and under one second reconstruction.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-bg-darker">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Hyperspectral cameras face harsh trade-offs between spatial, spectral, and temporal resolution in inherently low-photon conditions. Computational imaging systems break through these trade-offs with compressive sensing, but have required complex optics and/or extensive compute.
+          </p>
+          <p>
+            We present <strong>Spectrum from Defocus (SfD)</strong>, a chromatic focal sweep method that achieves state-of-the-art hyperspectral imaging with only two off-the-shelf lenses, a grayscale sensor, and less than one second of reconstruction time. By capturing a chromatically-aberrated focal stack that preserves nearly all incident light, and reconstructing it with a fast physics-based iterative algorithm, SfD delivers sharp, accurate hyperspectral images.
+          </p>
+          <p>
+            The combination of photon efficiency, optical simplicity, and physical interpretability makes SfD a promising solution for fast, compact, interpretable hyperspectral imaging.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Optical design (Figure 2a style): continuous slider, lenses, rays, PSFs. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Optical Setup</h2>
+        <p class="content has-text-justified">
+          Drag the slider to move the second lens. Different wavelengths come into focus on the grayscale sensor, creating wavelength-dependent blur that serves as our optical encoding.
+        </p>
+        <div class="optical-diagram-wrapper">
+          <div class="optical-diagram-container">
+            <canvas id="optical-diagram-canvas"></canvas>
+            <div class="optical-slider-container">
+              <div class="optical-slider-ticks" id="optical-slider-ticks" aria-hidden="true"></div>
+              <input type="range" id="optical-slider" class="slider is-fullwidth is-large is-info" min="0" max="100" value="50" step="0.5">
+            </div>
+            <div class="optical-wavelength-label" id="optical-wavelength-label">λ in focus: — nm</div>
+          </div>
+        </div>
+        <p class="is-size-7 has-text-grey has-text-centered" style="margin-top: 0.5rem;">Chromatic focal shift and lens motion are exaggerated for clarity compared to the paper.</p>
+      </div>
+    </div>
+    <!--/ Optical design. -->
+  </div>
+</section>
+
+
+<section class="section section-bg-darker">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="content">
+      <p class="has-text-centered">Coming soon.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Example Results</h2>
+    <p class="content has-text-centered mb-5 results-intro results-intro-desktop">Hover over the reconstruction to see ground truth and reconstructed spectra at that pixel. This may take a while to load, hyperspectral images are large files to download.</p>
+    <p class="content has-text-centered mb-5 results-intro results-intro-mobile">Spectral lines are available on the desktop interface.</p>
+
+    <div class="results-container">
+      <div class="results-loading" id="results-loading">
+        <div class="results-loading-bar">
+          <div class="results-loading-fill"></div>
+        </div>
+        <p class="results-loading-text">Loading results...</p>
+      </div>
+      <div class="results-row" data-result-id="0">
+      <div class="results-panel results-panel-measurements">
+        <p class="results-panel-label">Measurements</p>
+        <div class="results-measurements-carousel slider" data-slides-to-show="1">
+          <div class="item"><img src="./static/images/result0/m0.png" alt="Measurement 1"></div>
+          <div class="item"><img src="./static/images/result0/m1.png" alt="Measurement 2"></div>
+          <div class="item"><img src="./static/images/result0/m2.png" alt="Measurement 3"></div>
+          <div class="item"><img src="./static/images/result0/m3.png" alt="Measurement 4"></div>
+          <div class="item"><img src="./static/images/result0/m4.png" alt="Measurement 5"></div>
+        </div>
+      </div>
+      <div class="results-panel results-panel-rgb">
+        <p class="results-panel-label">Reconstruction (RGB)</p>
+        <div class="results-rgb-wrap">
+          <img class="results-rgb-image" id="results-rgb-image-0" src="" alt="" data-src="./static/images/result0/rgb_actual.png">
+          <script>
+            (function() {
+              var img = document.getElementById('results-rgb-image-0');
+              if (img && img.dataset.src) { img.src = img.dataset.src; }
+            })();
+          </script>
+        </div>
+        <p class="results-rgb-psnr is-size-7 has-text-grey">PSNR: 27.15 dB</p>
+      </div>
+      <div class="results-panel results-panel-spectrum">
+        <p class="results-panel-label">Spectrum</p>
+        <div class="spectrum-plot-wrap">
+          <div class="spectrum-plot" id="spectrum-plot-0"></div>
+          <p class="spectrum-plot-legend is-size-7 has-text-grey">
+            <span class="spectrum-legend-item"><span class="spectrum-legend-swatch" style="background:#2563eb"></span> gt</span>
+            <span class="spectrum-legend-item"><span class="spectrum-legend-swatch" style="background:#dc2626"></span> recon</span>
+            <span class="spectrum-legend-sep">·</span>
+            <span class="spectrum-plot-hint">Hover over image →</span>
+          </p>
+        </div>
+      </div>
+    </div>
+      <div class="results-row" data-result-id="1">
+      <div class="results-panel results-panel-measurements">
+        <p class="results-panel-label">Measurements</p>
+        <div class="results-measurements-carousel slider" data-slides-to-show="1">
+          <div class="item"><img src="./static/images/result1/m0.png" alt="Measurement 1"></div>
+          <div class="item"><img src="./static/images/result1/m1.png" alt="Measurement 2"></div>
+          <div class="item"><img src="./static/images/result1/m2.png" alt="Measurement 3"></div>
+          <div class="item"><img src="./static/images/result1/m3.png" alt="Measurement 4"></div>
+          <div class="item"><img src="./static/images/result1/m4.png" alt="Measurement 5"></div>
+        </div>
+      </div>
+      <div class="results-panel results-panel-rgb">
+        <p class="results-panel-label">Reconstruction (RGB)</p>
+        <div class="results-rgb-wrap">
+          <img class="results-rgb-image" id="results-rgb-image-1" src="" alt="" data-src="./static/images/result1/rgb_actual.png">
+          <script>
+            (function() {
+              var img = document.getElementById('results-rgb-image-1');
+              if (img && img.dataset.src) { img.src = img.dataset.src; }
+            })();
+          </script>
+        </div>
+        <p class="results-rgb-psnr is-size-7 has-text-grey">PSNR: 33.15 dB</p>
+      </div>
+      <div class="results-panel results-panel-spectrum">
+        <p class="results-panel-label">Spectrum</p>
+        <div class="spectrum-plot-wrap">
+          <div class="spectrum-plot" id="spectrum-plot-1"></div>
+          <p class="spectrum-plot-legend is-size-7 has-text-grey">
+            <span class="spectrum-legend-item"><span class="spectrum-legend-swatch" style="background:#2563eb"></span> gt</span>
+            <span class="spectrum-legend-item"><span class="spectrum-legend-swatch" style="background:#dc2626"></span> recon</span>
+            <span class="spectrum-legend-sep">·</span>
+            <span class="spectrum-plot-hint">Hover over image →</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-bg-darker">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Poster</h2>
+    <div class="content">
+      <p class="has-text-centered">Coming soon.</p>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
