@@ -49,6 +49,60 @@ body {
     font-family: 'Google Sans', sans-serif;
 }
 
+/* Rainbow gradient for "Spectrum" (horizontal) */
+.title-spectrum {
+  background: linear-gradient(
+    90deg,
+    #e21b1b,
+    #e87b1b,
+    #e8e81b,
+    #1be81b,
+    #1be8e8,
+    #1b1be8,
+    #e81be8,
+    #e21b1b
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Blurred "Defocus" effect: two blur layers for stronger defocus */
+.title-defocus-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.title-defocus-blur-outer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(6px);
+  opacity:1.0;
+  color: inherit;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+.title-defocus-blur {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(6px);
+  opacity: 1;
+  color: inherit;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1;
+}
+.title-defocus-text {
+  position: relative;
+  z-index: 2;
+}
+
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
 }
