@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NUBIVlab Project Website Root Page</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b0b0f;
+        --card: #12121a;
+        --text: #f2f2f6;
+        --muted: #a8a8b3;
+        --border: rgba(255, 255, 255, 0.12);
+        --link: #7aa2ff;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #ffffff;
+          --card: #f6f7fb;
+          --text: #121217;
+          --muted: #5a5a6a;
+          --border: rgba(0, 0, 0, 0.12);
+          --link: #2563eb;
+        }
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 48px 20px 64px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 26px;
+      }
+
+      .header h1 {
+        font-size: 2rem;
+        margin: 0 0 10px;
+        letter-spacing: 0.2px;
+      }
+
+      .header p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      h2 {
+        margin: 36px 0 14px;
+        font-size: 1.25rem;
+        color: var(--text);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+
+      a.card,
+      .card {
+        display: block;
+        padding: 16px 16px 18px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--card);
+        text-decoration: none;
+        transition: transform 120ms ease, border-color 120ms ease;
+      }
+
+      a.card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(122, 162, 255, 0.6);
+      }
+
+      .card-title {
+        font-weight: 700;
+        margin: 2px 0 6px;
+        line-height: 1.2;
+      }
+
+      .card-path {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+          monospace;
+        font-size: 0.85rem;
+        color: var(--muted);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .disabled {
+        opacity: 0.7;
+        cursor: default;
+      }
+
+      .disabled .card-title {
+        color: var(--muted);
+      }
+
+      .note {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 22px;
+        font-size: 0.95rem;
+      }
+
+      .note a {
+        color: var(--link);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>NUBIVlab</h1>
+      <h2>Lab</h2>
+      <ul>
+        <li><a href="https://www.alexander.vision/" rel="noopener">BIVlab</a></li>
+      </ul>
+
+      <h2>Project Sites living under this domain</h2>
+      <ul>
+        <li><a href="https://nubivlab.github.io/Galaxy-Deconv/">Galaxy-Deconv</a></li>
+        <li><a href="https://nubivlab.github.io/spectrum_from_defocus/">Spectrum from Defocus</a></li>
+        <li><a href="https://nubivlab.github.io/wild_thermal/">wild_thermal</a></li>
+        <li><a href="https://nubivlab.github.io/Coord-SoS-PACT/">Coord-SoS-PACT</a></li>
+        <li><a href="https://nubivlab.github.io/HyperColorization/">HyperColorization</a></li>
+        <li><a href="https://nubivlab.github.io/SpiderCam/">SpiderCam</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+
