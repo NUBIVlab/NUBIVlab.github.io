@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Homeostatic Adaptation of Optimal Population Codes under Metabolic Stress">
+  <meta name="keywords" content="Efficient neural codes, neural computation, metabolism">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homeostatic Adaptation of Optimal Population Codes under Metabolic Stress</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Homeostatic Adaptation of Optimal Population Codes under Metabolic Stress</h1>
+          <div class="is-size-5 publication-venue">ICLR 2026</div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yichunhung.github.io/">Yi-Chun Hung</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.northwestern.edu/schwartzlab/">Greg Schwartz</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://emilyacooper.org/">Emily A Cooper</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1</sup>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Northwestern University,</span>
+            <span class="author-block"><sup>2</sup>University of California, Berkeley</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <span class="link-block">
+                <a href="./static/pdfs/homeostatic_ICLR_2026.pdf" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/code/homeostatic_supp_ICLR_2026.zip" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-archive"></i>
+                  </span>
+                  <span>Code & Data</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2507.07874" target="_blank" rel="noopener noreferrer"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Arxiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="result-figure">
+        <img src="./static/images/motivation.png" alt="Motivation figure"
+        style="transform: scale(1.1); transform-origin: center;">
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-bg-darker">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Information processing in neural populations is inherently constrained by metabolic resource limits and noise properties.
+            Recent data, for example, shows that 
+            neurons in mouse visual cortex can go into a ``low power mode" in which they maintain firing rate homeostasis while expending less energy. 
+            This adaptation leads to increased neuronal noise and tuning curve flattening in response to metabolic stress.
+            These dynamics are not described by existing mathematical models of optimal neural codes.
+            We have developed a theoretical population coding framework that captures this behavior using two surprisingly simple constraints: an approximation of firing rate homeostasis and an energy limit tied to noise levels via biophysical simulation. 
+            A key feature of our contribution is an energy budget model directly connecting adenosine triphosphate (ATP) use in cells to a fully explainable mathematical framework that generalizes existing optimal population codes.
+            Specifically, our simulation provides an energy-dependent dispersed Poisson noise model, based on the assumption that the cell will follow an optimal decay path to produce the least-noisy spike rate that is possible at a given cellular energy budget. 
+            Each state along this optimal path is associated with properties (resting potential and leak conductance) which can be measured in electrophysiology experiments and have been shown to change under prolonged caloric deprivation. 
+            We analytically derive the optimal coding strategy for neurons under varying energy budgets and coding goals, and show that our method uniquely captures how populations of tuning curves adapt while maintaining homeostasis, as has been observed empirically.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Model</h2>
+    <div class="content">
+      <p class="has-text-centered">The optimization objective is defined as:</p>
+      <div class="equation-block has-text-centered">
+        \[
+          \begin{aligned}
+          &\operatorname*{arg\,max}_{g(\cdot), d(\cdot)}
+          \int p(s)\, f\!\left(\eta_{\kappa}(E)^{-1} g(s) d(s)^2\right)\, ds \quad \text{(Coding objective)}, \\
+          &~~~~~\text{s.t.} \quad p(s) g(s) = R(s) d(s) \quad \text{(Approximate homeostasis constraint)} , \\
+          &~~~~~~~~~~\int p(s)\, g(s)^\alpha\, ds = E \quad \text{(Energy budget constraint)},
+          \end{aligned}
+        \]
+        where $p(s)$ is the stimulus distribution, 
+        $f(\cdot)$ is the coding objective (e.g. infomax or discrimax), 
+        $\eta_{\kappa}(E)$ is the energy-dependent noise level, 
+        $g(s)$ is the gain function, 
+        $d(s)$ is the density function, 
+        $R(s)$ is the firing rate, 
+        and $E$ is the energy budget.
+    </div>
+  </div>
+</section>
+
+<section class="section section-bg-darker">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Analytical Solution</h2>
+    <div class="content">
+      <div class="analytical-table-wrap">
+        <table class="table is-fullwidth analytical-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th><strong>infomax</strong></th>
+              <th><strong>discrimax</strong></th>
+              <th><strong>\(L_p\) error, \(p = -2\beta\)</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><strong>Optimized function</strong></th>
+              <td>\(f(x)=\log x\)</td>
+              <td>\(f(x)=-x^{-1}\)</td>
+              <td>\(f(x)=-x^{\beta}, \ \beta < \frac{\alpha}{3}\)</td>
+            </tr>
+            <tr>
+              <th><strong>Density</strong> \(d(s)\)</th>
+              <td>\(E^{\frac{1}{\alpha}} R(s)^{-1} p(s)\)</td>
+              <td>\(\propto E^{\frac{1}{\alpha}} R(s)^{\frac{-\alpha-1}{\alpha+3}} p(s)^{\frac{\alpha+1}{\alpha+3}}\)</td>
+              <td>\(\propto E^{\frac{1}{\alpha}} R(s)^{\frac{\alpha-\beta}{3\beta-\alpha}} p(s)^{\frac{\beta-\alpha}{3\beta-\alpha}}\)</td>
+            </tr>
+            <tr class="dashed-row">
+              <th><strong>Gain</strong> \(g(s)\)</th>
+              <td>\(E^{\frac{1}{\alpha}}\)</td>
+              <td>\(\propto E^{\frac{1}{\alpha}} R(s)^{\frac{2}{\alpha+3}} p(s)^{\frac{-2}{\alpha+3}}\)</td>
+              <td>\(\propto E^{\frac{1}{\alpha}} R(s)^{\frac{2\beta}{3\beta-\alpha}} p(s)^{\frac{-2\beta}{3\beta-\alpha}}\)</td>
+            </tr>
+            <tr class="dashed-row">
+              <th><strong>Fisher info</strong> \(FI(s)\)</th>
+              <td>\(\propto \frac{E^{\frac{3}{\alpha}}p(s)^2}{\eta_{\kappa}(E) R(s)^2}\)</td>
+              <td>\(\propto \frac{E^{\frac{3}{\alpha}} p(s)^{\frac{2\alpha}{\alpha+3}}}{\eta_{\kappa}(E) R(s)^{\frac{2\alpha}{\alpha+3}}}\)</td>
+              <td>\(\propto \frac{E^{\frac{3}{\alpha}} p(s)^{\frac{-2\alpha}{3\beta-\alpha}}}{\eta_{\kappa}(E) R(s)^{\frac{2\alpha}{\alpha-3\beta}}}\)</td>
+            </tr>
+            <tr class="dashed-row">
+              <th><strong>Disc. bound</strong></th>
+              <td>\(\propto E^{\frac{-3}{2\alpha}}p(s)^{-1}\)</td>
+              <td>\(\propto E^{\frac{-3}{2\alpha}}p(s)^{\frac{-\alpha}{\alpha+3}}\)</td>
+              <td>\(\propto E^{\frac{-3}{2\alpha}}p(s)^{\frac{\alpha}{3\beta-\alpha}}\)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <figure class="result-figure">
+          <img src="./static/images/Compare_fig_seperate.png" alt="Comparison figure across conditions">
+          <figcaption class="has-text-centered is-size-7 has-text-grey">
+            Figure: Comparison of optimal tuning curves in control versus food-restricted mouse neocortex (L2/3). 
+            (a-d) The figure illustrates how an example tuning curve in an optimal population adapts
+            to a tightening of energy-related constraints. Under metabolic stress, real tuning curves
+            flatten (a, based on [Padamsey et al., 2022]). Our model (b, <span style="color:Purple">purple</span>)
+            predicts this flattening, while existing models predict either shortening (c, 
+            <span style="color:Blue">blue</span> [Ganguli et al., 2010])
+            or widening (d, <span style="color:Red">red</span> [Wang et al., 2016]).
+            (e) We compute the change in mean firing rate for each method under a uniform prior.
+            Only our model exhibits firing rate homeostasis.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
