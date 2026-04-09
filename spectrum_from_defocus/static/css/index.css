@@ -111,6 +111,8 @@ body {
     color: #555;
     width: fit-content;
     font-weight: bold;
+    font-size: 1.75rem;
+    letter-spacing: 0.01em;
     margin-top: 0.5rem;
     margin-bottom: 0.25rem;
     margin-left: auto;
