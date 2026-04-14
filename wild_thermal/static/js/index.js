@@ -75,6 +75,46 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
+    // Method overview: first mouse hover starts playback (no autoplay while reading abstract)
+    var methodOverviewVideo = document.getElementById('method-overview-video');
+    var methodOverviewBox = document.getElementById('method-overview-video-box');
+    if (methodOverviewVideo) {
+      var methodOverviewStarted = false;
+      var methodOverviewSuppressToggleUntil = 0;
+
+      function methodOverviewIsLikelyControlsStrip(clientY) {
+        var r = methodOverviewVideo.getBoundingClientRect();
+        var strip = Math.min(72, Math.max(44, r.height * 0.22));
+        return clientY >= r.bottom - strip;
+      }
+
+      function methodOverviewSuppressAccidentalToggle(e) {
+        if (Date.now() >= methodOverviewSuppressToggleUntil) return;
+        if (methodOverviewIsLikelyControlsStrip(e.clientY)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+
+      methodOverviewVideo.addEventListener('playing', function() {
+        methodOverviewSuppressToggleUntil = Date.now() + 1000;
+        if (methodOverviewBox) {
+          methodOverviewBox.classList.add('is-method-video-started');
+        }
+      });
+      methodOverviewVideo.addEventListener('pointerdown', methodOverviewSuppressAccidentalToggle, true);
+      methodOverviewVideo.addEventListener('click', methodOverviewSuppressAccidentalToggle, true);
+
+      methodOverviewVideo.addEventListener('mouseenter', function onMethodOverviewFirstHover() {
+        if (methodOverviewStarted) return;
+        methodOverviewStarted = true;
+        methodOverviewVideo.removeEventListener('mouseenter', onMethodOverviewFirstHover);
+        var p = methodOverviewVideo.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(function() {});
+        }
+      });
+    }
+
     // Video selector: clicking a thumbnail loads and plays that video in the main box
     var mainVideo = document.getElementById('main-display-video');
     if (mainVideo) {

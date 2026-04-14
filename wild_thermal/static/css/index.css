@@ -104,12 +104,53 @@ body {
     border-radius: 10px !important;
 }
 
-.publication-video iframe {
+.publication-video iframe,
+.publication-video video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Method overview: subtle “this is a video” cue until playback starts */
+.method-video-hint {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 1rem;
+    pointer-events: none;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.method-video-hint__icon {
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    color: rgba(255, 255, 255, 0.78);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.65));
+}
+
+.method-video-hint__text {
+    font-family: "Noto Sans", sans-serif;
+    font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: center;
+    max-width: 22rem;
+    padding: 0.5em 0.9em;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.94);
+    background: rgba(0, 0, 0, 0.58);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.publication-video.is-method-video-started .method-video-hint {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .publication-poster {
