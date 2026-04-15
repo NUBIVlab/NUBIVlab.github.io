@@ -75,7 +75,7 @@ $(document).ready(function() {
 
     bulmaSlider.attach();
 
-    // Method overview: first mouse hover starts playback (no autoplay while reading abstract)
+    // Method overview: first hover (desktop) or tap outside controls (touch) starts playback
     var methodOverviewVideo = document.getElementById('method-overview-video');
     var methodOverviewBox = document.getElementById('method-overview-video-box');
     if (methodOverviewVideo) {
@@ -95,6 +95,31 @@ $(document).ready(function() {
         e.stopImmediatePropagation();
       }
 
+      function methodOverviewDetachStarters() {
+        methodOverviewVideo.removeEventListener('mouseenter', onMethodOverviewFirstHover);
+        methodOverviewVideo.removeEventListener('pointerdown', onMethodOverviewFirstPointer);
+      }
+
+      function methodOverviewTryStartPlayback() {
+        if (methodOverviewStarted) return;
+        methodOverviewStarted = true;
+        methodOverviewDetachStarters();
+        var p = methodOverviewVideo.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(function() {});
+        }
+      }
+
+      function onMethodOverviewFirstHover() {
+        methodOverviewTryStartPlayback();
+      }
+
+      function onMethodOverviewFirstPointer(e) {
+        if (methodOverviewStarted) return;
+        if (methodOverviewIsLikelyControlsStrip(e.clientY)) return;
+        methodOverviewTryStartPlayback();
+      }
+
       methodOverviewVideo.addEventListener('playing', function() {
         methodOverviewSuppressToggleUntil = Date.now() + 1000;
         if (methodOverviewBox) {
@@ -104,28 +129,38 @@ $(document).ready(function() {
       methodOverviewVideo.addEventListener('pointerdown', methodOverviewSuppressAccidentalToggle, true);
       methodOverviewVideo.addEventListener('click', methodOverviewSuppressAccidentalToggle, true);
 
-      methodOverviewVideo.addEventListener('mouseenter', function onMethodOverviewFirstHover() {
-        if (methodOverviewStarted) return;
-        methodOverviewStarted = true;
-        methodOverviewVideo.removeEventListener('mouseenter', onMethodOverviewFirstHover);
-        var p = methodOverviewVideo.play();
+      methodOverviewVideo.addEventListener('mouseenter', onMethodOverviewFirstHover);
+      methodOverviewVideo.addEventListener('pointerdown', onMethodOverviewFirstPointer);
+    }
+
+    // Video selector: thumbnail activates main video (div[role=button] for better mobile support)
+    var mainVideo = document.getElementById('main-display-video');
+    if (mainVideo) {
+      function selectVideoFromThumbnail(el) {
+        var src = el.getAttribute('data-video');
+        if (!src) return;
+        $('.video-selector .thumbnail').removeClass('is-selected');
+        el.classList.add('is-selected');
+        var sourceEl = mainVideo.querySelector('source');
+        if (!sourceEl) return;
+        sourceEl.src = src;
+        mainVideo.load();
+        mainVideo.muted = true;
+        var p = mainVideo.play();
         if (p && typeof p.catch === 'function') {
           p.catch(function() {});
         }
-      });
-    }
+      }
 
-    // Video selector: clicking a thumbnail loads and plays that video in the main box
-    var mainVideo = document.getElementById('main-display-video');
-    if (mainVideo) {
       $('.video-selector .thumbnail').on('click', function() {
-        var src = $(this).data('video');
-        if (!src) return;
-        $('.video-selector .thumbnail').removeClass('is-selected');
-        $(this).addClass('is-selected');
-        mainVideo.querySelector('source').src = src;
-        mainVideo.load();
-        mainVideo.play();
+        selectVideoFromThumbnail(this);
+      });
+
+      $('.video-selector .thumbnail').on('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectVideoFromThumbnail(this);
+        }
       });
     }
 

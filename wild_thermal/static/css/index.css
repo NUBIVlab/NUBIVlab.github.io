@@ -13,6 +13,15 @@ body {
     margin-bottom: 5px;
 }
 
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  margin-top: 0.5rem;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
@@ -27,9 +36,6 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
-
-.publication-title {
-}
 
 .publication-banner {
   max-height: parent;
@@ -49,6 +55,8 @@ body {
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
+    font-size: clamp(1.35rem, 4vw + 0.45rem, 3rem) !important;
+    line-height: 1.18;
 }
 
 .publication-authors {
@@ -59,11 +67,16 @@ body {
     color: #555;
     width: fit-content;
     font-weight: bold;
-    font-size: 1.65rem;
+    font-size: clamp(1.05rem, 2.2vw + 0.45rem, 1.65rem);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: auto;
     margin-right: auto;
+}
+
+.section .title.is-3,
+.hero .title.is-3 {
+  font-size: clamp(1.35rem, 2.2vw + 0.9rem, 2rem) !important;
 }
 
 .publication-awards {
@@ -146,6 +159,19 @@ body {
     color: rgba(255, 255, 255, 0.94);
     background: rgba(0, 0, 0, 0.58);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.method-video-hint__text--touch {
+    display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .method-video-hint__text--hover {
+        display: none;
+    }
+    .method-video-hint__text--touch {
+        display: block;
+    }
 }
 
 .publication-video.is-method-video-started .method-video-hint {
@@ -240,6 +266,16 @@ body {
   flex-direction: column;
   align-items: stretch;
   text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.thumbnail:focus {
+  outline: none;
+}
+
+.thumbnail:focus-visible {
+  outline: 2px solid hsl(204, 86%, 53%);
+  outline-offset: 2px;
 }
 
 .thumbnail-caption {
@@ -274,6 +310,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .video-wrapper-16x9 {
@@ -338,4 +375,35 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-publication .hero-body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-publication .publication-authors.is-size-5 {
+    font-size: 1.05rem !important;
+  }
+
+  .abstract-mobile-left.has-text-justified {
+    text-align: left !important;
+  }
+}
+
+#BibTeX pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 769px) {
+  #BibTeX pre {
+    font-size: 1rem;
+  }
 }

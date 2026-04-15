@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Thermal is Always Wild: Characterizing and Addressing Challenges in Thermal-Only Novel View Synthesis. CVPR 2025.">
+        content="Thermal is Always Wild: Characterizing and Addressing Challenges in Thermal-Only Novel View Synthesis. CVPR 2026.">
   <meta name="keywords" content="Thermal, Novel View Synthesis, 3D Gaussian Splatting, NUBIVLab, Computer Vision, CVPR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thermal is Always Wild — Thermal-Only Novel View Synthesis</title>
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-<section class="hero">
+<section class="hero hero-publication">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
@@ -50,7 +50,7 @@
             <span class="author-block"><sup>2</sup>University of California, Riverside</span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
@@ -119,7 +119,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified abstract-mobile-left">
           <p>
             Thermal cameras provide reliable visibility in darkness and adverse conditions, but
             thermal imagery remains significantly harder to use for novel view synthesis (NVS) than
@@ -153,7 +153,8 @@
           </video>
           <div class="method-video-hint" aria-hidden="true">
             <span class="method-video-hint__icon"><i class="fas fa-video" aria-hidden="true"></i></span>
-            <span class="method-video-hint__text">Hover your mouse to start the video</span>
+            <span class="method-video-hint__text method-video-hint__text--hover">Hover to start playback</span>
+            <span class="method-video-hint__text method-video-hint__text--touch">Tap the video (outside controls) to start</span>
           </div>
         </div>
       </div>
@@ -166,7 +167,10 @@
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-      <h2 class="title is-3">Video Results</h2></div>
+        <div class="column is-full">
+          <h2 class="title is-3">Video Results</h2>
+        </div>
+      </div>
       <div class="video-selector">
         <div class="main-video-box video-wrapper-16x9">
           <video id="main-display-video" controls autoplay muted loop playsinline>
@@ -174,54 +178,54 @@
           </video>
         </div>
         <div class="thumbnail-row">
-          <button type="button" class="thumbnail is-selected" data-video="./static/videos/mvtv_human0.mp4">
+          <div class="thumbnail is-selected" role="button" tabindex="0" data-video="./static/videos/mvtv_human0.mp4" aria-label="Play MVTV Human0 result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/mvtv_human0.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">MVTV - Human0</span>
-          </button>
-          <button type="button" class="thumbnail" data-video="./static/videos/TINSD_UAV2.mp4">
+          </div>
+          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/TINSD_UAV2.mp4" aria-label="Play TI-NSD UAV2 result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/TINSD_UAV2.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">TI-NSD - UAV2</span>
-          </button>
-          <button type="button" class="thumbnail" data-video="./static/videos/lin_sink.mp4">
+          </div>
+          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/lin_sink.mp4" aria-label="Play Lin et al. Sink result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/lin_sink.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">Lin et al. - Sink</span>
-          </button>
-          <button type="button" class="thumbnail" data-video="./static/videos/msx_ebike.mp4">
+          </div>
+          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/msx_ebike.mp4" aria-label="Play MSX EBike result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/msx_ebike.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">MSX - EBike</span>
-          </button>
-          <button type="button" class="thumbnail" data-video="./static/videos/TMix_lion.mp4">
+          </div>
+          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/TMix_lion.mp4" aria-label="Play T.Mix Lion result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/TMix_lion.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">T.Mix - Lion</span>
-          </button>
-          <button type="button" class="thumbnail" data-video="./static/videos/mvtv_mason.mp4">
+          </div>
+          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/mvtv_mason.mp4" aria-label="Play MVTV Mason result video">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
                 <source src="./static/videos/mvtv_mason.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">MVTV - Mason</span>
-          </button>
+          </div>
         </div>
       </div>
     </div>
