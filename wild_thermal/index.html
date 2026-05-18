@@ -171,57 +171,77 @@
           <h2 class="title is-3">Video Results</h2>
         </div>
       </div>
-      <div class="video-selector">
-        <div class="main-video-box video-wrapper-16x9">
-          <video id="main-display-video" controls autoplay muted loop playsinline>
-            <source src="./static/videos/mvtv_human0.mp4" type="video/mp4">
-          </video>
+      <div class="video-comparison">
+        <p class="comparison-drag-hint">Drag the white bar to compare results.</p>
+        <div class="comparison-method-buttons" role="group" aria-label="Select comparison method">
+          <button class="button is-rounded comparison-method-btn is-selected" data-method-idx="0">ThermalNeRF</button>
+          <button class="button is-rounded comparison-method-btn" data-method-idx="1">Vanilla 3DGS</button>
+          <button class="button is-rounded comparison-method-btn" data-method-idx="2">Thermal3D-GS</button>
         </div>
-        <div class="thumbnail-row">
-          <div class="thumbnail is-selected" role="button" tabindex="0" data-video="./static/videos/mvtv_human0.mp4" aria-label="Play MVTV Human0 result video">
+        <div class="comparison-viewport" id="comparison-viewport">
+          <div class="comparison-side comparison-side-right">
+            <video id="comp-right-video" autoplay muted loop playsinline></video>
+            <span class="comparison-label comparison-label-right">Ours</span>
+          </div>
+          <div class="comparison-side comparison-side-left" id="comp-left-side">
+            <video id="comp-left-video" autoplay muted loop playsinline></video>
+            <span class="comparison-label comparison-label-left" id="comp-left-label">ThermalNeRF</span>
+          </div>
+          <div class="comparison-divider" id="comparison-divider">
+            <div class="comparison-handle" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="22" cy="22" r="21" fill="white" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+                <path d="M19 15 L12 22 L19 29" stroke="#555" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M25 15 L32 22 L25 29" stroke="#555" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="thumbnail-row" id="comp-thumbnail-row">
+          <div class="thumbnail is-selected" role="button" tabindex="0" data-scene-idx="0" aria-label="MVTV Human0">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/mvtv_human0.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/mvtv_human0.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">MVTV - Human0</span>
           </div>
-          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/TINSD_UAV2.mp4" aria-label="Play TI-NSD UAV2 result video">
+          <div class="thumbnail" role="button" tabindex="0" data-scene-idx="1" aria-label="TI-NSD UAV2">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/TINSD_UAV2.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/TINSD_UAV2.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">TI-NSD - UAV2</span>
           </div>
-          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/lin_sink.mp4" aria-label="Play Lin et al. Sink result video">
+          <div class="thumbnail" role="button" tabindex="0" data-scene-idx="2" aria-label="Lin et al. Sink">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/lin_sink.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/lin_sink.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">Lin et al. - Sink</span>
           </div>
-          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/msx_ebike.mp4" aria-label="Play MSX EBike result video">
+          <div class="thumbnail" role="button" tabindex="0" data-scene-idx="3" aria-label="MSX Building">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/msx_ebike.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/MSX_Building.mp4" type="video/mp4">
               </video>
             </span>
-            <span class="thumbnail-caption">MSX - EBike</span>
+            <span class="thumbnail-caption">MSX - Building</span>
           </div>
-          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/TMix_lion.mp4" aria-label="Play T.Mix Lion result video">
+          <div class="thumbnail" role="button" tabindex="0" data-scene-idx="4" aria-label="T.Mix Lion">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/TMix_lion.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/TMix_lion.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">T.Mix - Lion</span>
           </div>
-          <div class="thumbnail" role="button" tabindex="0" data-video="./static/videos/mvtv_mason.mp4" aria-label="Play MVTV Mason result video">
+          <div class="thumbnail" role="button" tabindex="0" data-scene-idx="5" aria-label="MVTV Mason">
             <span class="thumbnail-video video-wrapper-16x9">
               <video muted playsinline preload="metadata">
-                <source src="./static/videos/mvtv_mason.mp4" type="video/mp4">
+                <source src="./static/videos/wild_thermal/mvtv_mason.mp4" type="video/mp4">
               </video>
             </span>
             <span class="thumbnail-caption">MVTV - Mason</span>
