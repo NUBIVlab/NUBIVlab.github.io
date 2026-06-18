@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ShuffleFlow: Scalable Posterior Inference for Bayesian Inverse Imaging.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShuffleFlow: Scalable Posterior Inference for Bayesian Inverse Imaging</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ShuffleFlow: Scalable Posterior Inference for Bayesian Inverse Imaging</h1>
+            <h2 class="subtitle is-4" style="margin-top: 1em; font-weight: bold; color: #6c6c6c;">
+              <em>IEEE International Conference on Computational Photography (ICCP), 2026</em>
+              <br>
+              <small>
+                <span style="color: red;">Best Poster Honorable Mention,</span> <em>Midwest Machine Learning Symposium (MMLS), 2025</em>
+              </small>
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://lukeli0425.github.io/">Tianao Li</a><sup>1,3</sup>,</span>
+              <span class="author-block">
+                <a href="https://tstarkenburg.github.io/">Tjitske Starkenburg</a><sup>1,3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://sunyumark.github.io/">Yu Sun</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1,3</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Northwestern University,</span>
+              <span class="author-block"><sup>2</sup>John Hopkins University</span>,
+              <span class="author-block"><sup>3</sup>NSF-Simons AI Institute for the Sky (SkAI)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/NUBIVlab/ShuffleFlow/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <figure class="teaser-figure" style="margin: 0 auto; text-align: left;">
+          <img src="images/pipeline.png" alt="ShuffleFlow pipeline overview"
+            style="max-width:100%; height:auto; border-radius: 8px;">
+          <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+            <b>Overview of <span class="dnerf">ShuffleFlow</span>.</b>
+            We propose a new VI framework for inverse problems that decomposes the posterior modeling of a large image into three parts: coordinate sampling, partial image representation, and light-weight uncertainty quantification. 
+            Specifically, a pixel-unshuffling-based coordinate sampler partitions an image into a stack of sub-images, a neural field encodes spatial features for each sub-image, and a conditional normalizing flow estimates the joint distribution of the sub-image stack.
+            Our framework's modular structure is agnostic to specific network architectures and allows easy integration of advances in neural fields, normalizing flow networks, and generative priors.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Variational inference (VI) is a powerful method for principled posterior inference for scientific inverse imaging. 
+              VI learns the posterior distribution, often with a flow-based network, which can cheaply generate posterior samples upon optimization, and can flexibly incorporate score-based or classic priors. 
+              However, its application to large-scale image reconstruction is severely hindered by the poor scalability of the flow-based networks. 
+              In this work, we introduce ShuffleFlow, a scalable VI framework to address this challenge. 
+              Our method breaks down the problem into three parts: a pixel-unshuffling-based image coordinate sampler, a neural field as feature encoder, and a conditional normalizing flow (CNF) as posterior estimator. 
+              Specifically, our framework partitions an image into a stack of sub-images with pixel-unshuffling and uses a shared CNF to model the joint distribution of the sub-image stack. 
+              We condition the CNF on the output of a neural field, which embeds feature vectors corresponding to pixel-unshuffling sample locations to capture spatial structures, and share the flow's latent variable across the channels to model their correlations. 
+              We demonstrate our method's effectiveness and efficiency on both linear and nonlinear imaging inverse problems, and show its ability to more rapidly generate a high-sample-count posterior than diffusion samplers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <figure class="teaser-figure" style="margin: 0 auto; text-align: left;">
+              <img src="images/figure_scalability.png" alt="ShuffleFlow scalability"
+                style="max-width:100%; height:auto; border-radius: 8px;">
+              <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+                <b>Scalability comparison.</b>
+                (a) VI methods scale dramatically better than diffusion samplers for high-resolution posterior estimation. 
+                (b,c,d) Flow network size, optimization time, and VRAM vs. image dimension across VI methods. 
+                When the computation is dominated by the flow network (TV prior, dashed lines), our method (purple) shows the theoretically predicted growth trend compared to DPI (black). 
+                Even when an expensive score prior dominates (solid lines), our method still shows a substantial efficiency advantage. 
+                <!-- Experiment settings follow Sec. 4.3 and Tabs. 1 & S1. -->
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <figure class="teaser-figure image-panel-figure">
+              <div class="columns image-panel">
+                <div class="column">
+                  <img src="images/figure_fpr.png" alt="Posterior quality comparison">
+                </div>
+                <div class="column">
+                  <img src="images/figure_tsne.png" alt="Posterior sample efficiency">
+                </div>
+              </div>
+              <figcaption>
+                <b>Results on nonlinear Fourier phase retrieval.</b> 
+                (a) We draw 128 samples from each method and filter the samples into different modes if a bimodal posterior exists. 
+                We show the mean image from each mode, and PSNR, SSIM, and LPIPS are calculated with respect to the ground truth of each mode. 
+                Our method correctly captures the bimodal posterior among VI methods with the best image quality. 
+                DAPS stands out with the best image quality among all. (b) We compare our method with DAPS and DPS in a large sample count (10,000, left) and a small inference time (16 min, right) scenario, showing the t-SNE visualization for the posterior samples (top) and pixel histograms (bottom). 
+                Our method is able to generate 10,000 posterior samples in 16 minutes (including both training and sampling time), resulting in a high-resolution bimodal posterior density in the histogram. 
+                In contrast, DAPS and DPS generate spiky and noisy posterior densities in a similar time and need 20× more time to generate a high-resolution posterior. 
+                <!-- See PnP-DM results in Fig. S6. -->
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Video</h2>
+          <div class="publication-video">
+            <iframe src="h"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>@inproceedings{li2026shuffleflow,
+  title={ShuffleFlow: Scalable Posterior Inference for Bayesian Inverse Imaging},
+  author={Li, Tianao and Starkenburg, Tjitske and Sun, Yu and Alexander, Emma},
+  booktitle={IEEE International Conference on Computational Photography (ICCP)},
+  year={2026},
+  organization={IEEE}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <section class="section" id="Acknowledgements">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      <p class="has-text-justified">
+        We gratefully acknowledge the support of the <a href="https://skai-institute.org">NSF-Simons AI Institute for the Sky (SkAI)</a> via grants NSF AST-2421845 and Simons Foundation MPS-AI-00010513. 
+        This material is based upon work supported by the U.S. National Science Foundation under Award No. 2542022. 
+        The authors would like to thank <a href="https://bryan-pardo.github.io/">Bryan Pardo</a>, <a href="https://hesunpu.github.io/">He Sun</a>, and <a href="https://yichunhung.github.io/">Yi-Chun Hung</a> for helpful discussions.
+      </p>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <a class="icon-link" href="https://github.com/NUBIVlab/ShuffleFlow/" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template from <a href="https://nerfies.github.io/">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
