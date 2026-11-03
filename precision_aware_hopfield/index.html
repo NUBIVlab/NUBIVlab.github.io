@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Precision-aware Hopfield retrieval connects population coding and associative memory through Fisher information, adaptive attention temperature, and a link to denoising score estimation.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Precision-Aware Hopfield Retrieval">
+  <meta property="og:description" content="Unifying Population Codes and Memory Retrieval with Information Optimization">
+  <meta property="og:image" content="https://precision-aware-hopfield.wormyu.chatgpt.site/assets/overview.png">
+  <meta property="og:url" content="https://precision-aware-hopfield.wormyu.chatgpt.site/">
+  <title>Precision-Aware Hopfield Retrieval</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23363636'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3Eγ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#abstract">Skip to abstract</a>
+  <header class="publication-header">
+    <div class="container">
+      <h1>Precision-Aware Hopfield Retrieval:<span class="subtitle">Unifying Population Codes and Memory Retrieval<br class="desktop-break"> with Information Optimization</span></h1>
+      <p class="publication-venue">NeurIPS 2026</p>
+      <p class="authors">
+        <span><a href="https://yichunhung.github.io/" target="_blank" rel="noopener noreferrer">Yi-Chun Hung</a><sup>1</sup>,</span>
+        <span><a href="https://hibb-bb.github.io/" target="_blank" rel="noopener noreferrer">Dennis Wu</a><sup>1,2</sup>,</span>
+        <span><a href="https://wormyu.github.io/" target="_blank" rel="noopener noreferrer">Hong-Yu Chen</a><sup>1,2</sup>,</span>
+        <span><a href="https://magics.cs.northwestern.edu/index.html" target="_blank" rel="noopener noreferrer">Han Liu</a><sup>1,2,3</sup>,</span>
+        <span><a href="https://www.alexander.vision/" target="_blank" rel="noopener noreferrer">Emma Alexander</a><sup>1</sup></span>
+      </p>
+      <div class="affiliations">
+        <p><sup>1</sup>Department of Computer Science, Northwestern University</p>
+        <p><sup>2</sup>Center for Foundation Models and Generative AI (CFMG), Northwestern University</p>
+        <p><sup>3</sup>Department of Statistics and Data Science, Northwestern University</p>
+      </div>
+      <div class="publication-links">
+        <a class="paper-button" href="assets/precision-aware-hopfield.pdf" target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="19" viewBox="0 0 18 20" fill="none" aria-hidden="true"><path d="M3 1h8l4 4v14H3V1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 1v5h5M6 10h6M6 13h6M6 16h4" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span>Paper</span><span class="sr-only"> (PDF, opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="teaser container">
+      <figure>
+        <a class="figure-link" href="assets/overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the paper’s overview figure at full resolution">
+          <img src="assets/overview.png" width="1650" height="720" fetchpriority="high" alt="A stimulus passes through a neural encoder into a Hopfield memory decoder. Precision-aware retrieval replaces a fixed inverse temperature with a stimulus-dependent temperature and memory density, linking encoding precision to the final readout.">
+        </a>
+        <figcaption>
+          <p><strong>Overview of precision-aware Hopfield retrieval.</strong> A stimulus <span class="math">s</span> is encoded with Fisher information <span class="math">FI<sub>enc</sub>(s)</span> and decoded by a Hopfield network. Our framework uses a stimulus-dependent inverse temperature <span class="math">β(s)</span> to control attention sharpness and a density <span class="math">ρ(s)</span> to describe stored memories. The combined encoder–decoder precision is <span class="math">γ(s)</span>. The starred quantities <span class="math">γ<sup>∗</sup>(s)</span> and <span class="math">ρ<sup>∗</sup>(s)</span> denote the optimal precision and memory density for stimulus prior <span class="math">p(s)</span>, under the paper’s <span class="math">L<sup>p</sup></span> loss and resource constraints.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <section class="section shaded" id="abstract" aria-labelledby="abstract-title">
+      <div class="container prose">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>Bayesian estimation has long been used to study both continuous estimation and discrete associative memory, but how encoding precision and memory retrieval should be jointly optimized remains unclear. We introduce <em>precision-aware Hopfield retrieval</em>, a framework that uses the encoder’s Fisher information to quantify encoding precision and incorporates it directly into the decoder of memory retrieval. Four results follow. First, optimal encoder-decoder information is shaped only by the prior, across <span class="math">L<sup>p</sup></span> loss functions. Second, the optimal information follows a general coupling law across <span class="math">L<sup>p</sup></span> loss functions. Third, optimal precision-aware Hopfield retrieval uses a stimulus-dependent inverse temperature. It outperforms the encoder-blind Bayesian decoder on both retrieval loss and required coding resource. Last, the framework yields a closed-form expression for memory recall bias. It reproduces central-tendency and cognitive-load effects observed in cognitive psychology. These effects emerge only when the encoder and decoder are modeled jointly.</p>
+      </div>
+    </section>
+
+    <section class="section" id="experiments" aria-labelledby="experiments-title">
+      <div class="container">
+        <h2 id="experiments-title">Experiments</h2>
+        <figure>
+          <a class="figure-link" href="assets/retrieval-comparison.png" target="_blank" rel="noopener noreferrer" aria-label="Open the paper’s retrieval comparison figure at full resolution">
+            <img src="assets/retrieval-comparison.png" width="1650" height="479" loading="lazy" alt="Three panels show a Gaussian stimulus prior, retrieval loss versus coding resource, and loss by stimulus. The adaptive decoder lies below the constant-temperature trade-off curve and reduces loss for common stimuli near the prior’s peak.">
+          </a>
+          <figcaption><strong>Adaptive versus constant-temperature retrieval.</strong> We compare the optimal inverse temperature <span class="math">β<sup>∗</sup>(s)</span> with constant-temperature baselines under <span class="math">L<sup>2</sup></span> loss and constant encoder Fisher information <span class="math">FI<sub>enc</sub> = 12</span>. (a) Gaussian stimulus prior. (b) Global loss versus coding resource <span class="math">C</span>, the total retrieval resolution. The adaptive decoder (green) achieves lower loss at the same resource (yellow), or uses less resource at the same loss (purple). (c) Per-stimulus loss shows how it reallocates precision: loss decreases for common stimuli and increases for rare stimuli.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section shaded" id="discussion" aria-labelledby="discussion-title">
+      <div class="container prose">
+        <h2 id="discussion-title">Discussion</h2>
+        <p><strong>Connection to diffusion models.</strong> Memory retrieval can be viewed as denoising. Let <span class="math">b(s)</span> be the mean shift from the stimulus <span class="math">s</span> to the retrieved value <span class="math">s̄</span>. At leading order, the recall variance is <span class="math">Var(s̄ | s) ≈ 1/γ(s)</span>, which gives</p>
+        <div class="equation">
+          <math display="block" aria-label="The derivative of log memory density is approximately recall bias divided by recall variance."><mrow><mo stretchy="false">(</mo><mi mathvariant="normal">log</mi><mi>ρ</mi><mo stretchy="false">)</mo><mo>′</mo><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo><mo>≈</mo><mfrac><mrow><mi>b</mi><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">Var</mi><mo stretchy="false">(</mo><mover><mi>s</mi><mo>¯</mo></mover><mo>∣</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow></math>
+        </div>
+        <p>The left side is the <em>score</em> of the memory density: the derivative of its logarithm. The relation connects the mean denoising shift, divided by the noise variance, to score estimation. Score-based diffusion models learn such denoising directions across a range of noise levels.</p>
+        <p>This suggests a connection between memory retrieval and generation: the score of the memory density could serve as a signal for generative modeling. The paper presents this as a heuristic connection and a direction for future work.</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container"><p>Format follows <a href="https://nubivlab.github.io/hungry_mouse/">Hungry Mouse</a>, based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> project-page template.</p></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+@font-face { font-family: "Paper Math"; src: url("fonts/latinmodern-math.otf") format("opentype"); font-display: swap; font-weight: 400; font-style: normal; }
+:root { color-scheme: light; --ink: #363636; --body: #454545; --link: #1476b8; --shade: #f5f5f5; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; color: var(--body); background: #fff; font-family: "Google Sans", "Noto Sans", Arial, sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, [tabindex]:focus-visible { outline: 3px solid #1476b8; outline-offset: 5px; }
+.container { width: min(100% - 48px, 960px); margin-inline: auto; }
+.prose { max-width: 790px; margin-inline: auto; }
+p { margin: 0 0 18px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 650; color: var(--ink); }
+h1, h2 { color: var(--ink); line-height: 1.2; }
+h1 { margin: 0 auto 25px; font-size: 44px; font-weight: 650; letter-spacing: -1.5px; }
+.subtitle { display: block; margin-top: 10px; font-size: 31px; line-height: 1.27; font-weight: 500; letter-spacing: -.7px; }
+h2 { margin: 0 0 28px; text-align: center; font-size: 31px; font-weight: 650; letter-spacing: -.6px; }
+.publication-header { padding: 54px 0 31px; text-align: center; }
+.publication-venue { margin-bottom: 10px; font-size: 20px; font-weight: 600; }
+.authors { margin-bottom: 12px; font-size: 20px; line-height: 1.7; color: #1476b8; }
+.authors span { display: inline-block; margin-inline: 3px; }
+sup { font-size: .7em; line-height: 0; }
+.authors sup { margin-left: 2px; color: var(--body); }
+.affiliations { font-size: 15px; line-height: 1.65; }
+.affiliations p { margin: 0; }
+.affiliations sup { margin-right: 3px; }
+.publication-links { display: flex; justify-content: center; margin-top: 23px; }
+.paper-button { display: inline-flex; gap: 9px; align-items: center; justify-content: center; padding: 8px 20px; min-height: 42px; border-radius: 30px; background: #363636; color: #fff; line-height: 1.5; transition: background .15s; }
+.paper-button:hover { background: #202020; text-decoration: none; }
+.teaser { padding-top: 6px; padding-bottom: 42px; }
+figure { margin: 0; }
+.figure-link { display: block; }
+img { display: block; width: 100%; height: auto; }
+figcaption { max-width: 880px; margin: 16px auto 0; text-align: left; font-size: 14px; line-height: 1.65; color: #626262; }
+.section { padding: 46px 0 48px; }
+.shaded { background: var(--shade); }
+#abstract p { text-align: justify; }
+.math { font-family: "Paper Math", "Cambria Math", "Times New Roman", serif; font-size: 1.08em; white-space: nowrap; }
+.math sub { font-size: .7em; }
+.equation { margin: 25px auto; text-align: center; font-size: 23px; color: #252525; }
+math { font-family: "Paper Math", "Cambria Math", math; }
+footer { padding: 35px 0 43px; background: #fafafa; color: #737373; font-size: 13px; text-align: center; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skip-link { position: absolute; top: -80px; left: 15px; z-index: 5; padding: 10px 15px; background: white; }
+.skip-link:focus { top: 15px; }
+@media (max-width: 700px) {
+  .container { width: min(100% - 36px, 960px); }
+  .publication-header { padding: 34px 0 25px; }
+  h1 { font-size: 33px; letter-spacing: -.9px; margin-bottom: 22px; }
+  .subtitle { font-size: 24px; letter-spacing: -.45px; line-height: 1.3; }
+  .desktop-break { display: none; }
+  .authors { font-size: 18px; }
+  .affiliations { font-size: 13px; }
+  .affiliations p { margin-bottom: 5px; }
+  .teaser { padding-bottom: 30px; }
+  figcaption { font-size: 13px; text-align: left; margin-top: 13px; }
+  .section { padding: 34px 0 36px; }
+  h2 { font-size: 27px; margin-bottom: 23px; }
+  #abstract p { text-align: left; }
+  .equation { font-size: 21px; }
+  footer { padding: 28px 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .paper-button { transition: none; } }
+@media print { .paper-button, .skip-link { display: none; } .section { padding: 25px 0; } .container { width: 100%; } figure, .equation { break-inside: avoid; } a { color: inherit; } }
