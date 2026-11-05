@@ -29,6 +29,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/method.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.27.0/plotly.min.js"></script>
   <script src="./static/js/results.js"></script>
   <script>
@@ -65,7 +66,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Northwestern University,</span>
             <span class="author-block"><sup>2</sup>Dolby Laboratories, Inc.,</span>
-            <span class="author-block"><sup>3</sup>Purdue University</span>
+            <span class="author-block"><sup>3</sup>Purdue University,</span>
             <span class="author-block"><sup>*</sup>Equal contribution</span>
           </div>
 
@@ -190,11 +191,149 @@
 </section>
 
 
-<section class="section section-bg-darker">
+<section class="section section-bg-darker" id="method" aria-labelledby="method-title">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Method</h2>
-    <div class="content">
-      <p class="has-text-centered">Coming soon.</p>
+    <h2 class="title is-3 has-text-centered" id="method-title">Method</h2>
+    <p class="content has-text-centered">
+      Explore how chromatic defocus enables fast spectral reconstruction.
+    </p>
+    <div class="method-viewer" id="method-viewer" role="region" aria-roledescription="carousel"
+         aria-label="Method slides" aria-describedby="method-instructions" tabindex="0">
+      <div id="method-slides">
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="1 of 10: Reconstruction algorithm" data-title="Reconstruction algorithm">
+          <a class="method-slide-link" href="./static/images/method/page-01.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 1: Reconstruction algorithm (opens in a new tab)">
+            <img src="./static/images/method/page-01.png"
+                 alt="Reconstruction objective with measurement, cropping, convolution, regularization, and spectral basis terms; physics-based estimation alternates with a transformer denoiser."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Reconstruction algorithm</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="2 of 10: From convolution to Fourier-domain multiplication" data-title="From convolution to Fourier-domain multiplication">
+          <a class="method-slide-link" href="./static/images/method/page-02.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 2: From convolution to Fourier-domain multiplication (opens in a new tab)">
+            <img src="./static/images/method/page-02.png"
+                 alt="Spatial convolutions of spectral images and point spread functions become element-wise multiplication and a sum over wavelengths in the Fourier domain."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">From convolution to Fourier-domain multiplication</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="3 of 10: Measurements across lens positions" data-title="Measurements across lens positions">
+          <a class="method-slide-link" href="./static/images/method/page-03.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 3: Measurements across lens positions (opens in a new tab)">
+            <img src="./static/images/method/page-03.png"
+                 alt="The same hyperspectral scene is multiplied by optical responses at five lens positions, producing a measurement at each position."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Measurements across lens positions</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="4 of 10: One spatial frequency across wavelengths" data-title="One spatial frequency across wavelengths">
+          <a class="method-slide-link" href="./static/images/method/page-04.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 4: One spatial frequency across wavelengths (opens in a new tab)">
+            <img src="./static/images/method/page-04.png"
+                 alt="Red markers highlight one spatial frequency across the wavelength dimension and its contribution to each measurement."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">One spatial frequency across wavelengths</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="5 of 10: Rearranging the measurement equations" data-title="Rearranging the measurement equations">
+          <a class="method-slide-link" href="./static/images/method/page-05.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 5: Rearranging the measurement equations (opens in a new tab)">
+            <img src="./static/images/method/page-05.png"
+                 alt="The measurement diagram is rearranged into a column of individual measurement values."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Rearranging the measurement equations</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="6 of 10: Extracting the optical response" data-title="Extracting the optical response">
+          <a class="method-slide-link" href="./static/images/method/page-06.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 6: Extracting the optical response (opens in a new tab)">
+            <img src="./static/images/method/page-06.png"
+                 alt="Red lines select the wavelength-dependent optical response at one spatial frequency for each lens position."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Extracting the optical response</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="7 of 10: Separating wavelength coefficients" data-title="Separating wavelength coefficients">
+          <a class="method-slide-link" href="./static/images/method/page-07.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 7: Separating wavelength coefficients (opens in a new tab)">
+            <img src="./static/images/method/page-07.png"
+                 alt="The selected wavelength-dependent optical responses are extracted as rows alongside the measurement values."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Separating wavelength coefficients</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="8 of 10: Independent small linear systems" data-title="Independent small linear systems">
+          <a class="method-slide-link" href="./static/images/method/page-08.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 8: Independent small linear systems (opens in a new tab)">
+            <img src="./static/images/method/page-08.png"
+                 alt="A matrix with rows for measurements and columns for wavelengths multiplies a spectral vector to produce the measurement vector; each frequency forms an independent small linear system."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Independent small linear systems</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="9 of 10: Reducing the spectral basis" data-title="Reducing the spectral basis">
+          <a class="method-slide-link" href="./static/images/method/page-09.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 9: Reducing the spectral basis (opens in a new tab)">
+            <img src="./static/images/method/page-09.png"
+                 alt="Changing from wavelengths to a spectral basis reduces the number of coefficients while preserving the small linear system structure."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Reducing the spectral basis</figcaption>
+        </figure>
+        <figure class="method-slide" role="group" aria-roledescription="slide"
+                aria-label="10 of 10: Efficient reconstruction" data-title="Efficient reconstruction">
+          <a class="method-slide-link" href="./static/images/method/page-10.png"
+             target="_blank" rel="noopener noreferrer" aria-label="Enlarge slide 10: Efficient reconstruction (opens in a new tab)">
+            <img src="./static/images/method/page-10.png"
+                 alt="Fourier-domain physics-based estimation alternates with a spatial-domain transformer denoiser; the slide reports 0.2 seconds per iteration and convergence in three iterations."
+                 width="2400" height="1351" loading="lazy" decoding="async">
+          </a>
+          <figcaption class="method-slide-caption has-text-centered">Efficient reconstruction</figcaption>
+        </figure>
+      </div>
+      <div class="method-controls" hidden>
+        <button class="button is-rounded" id="method-prev" type="button" aria-controls="method-slides">
+          <span aria-hidden="true">←</span><span>Previous</span>
+        </button>
+        <div class="select is-rounded">
+          <select id="method-page" aria-label="Choose a method slide" aria-controls="method-slides">
+              <option value="0">1 / 10</option>
+              <option value="1">2 / 10</option>
+              <option value="2">3 / 10</option>
+              <option value="3">4 / 10</option>
+              <option value="4">5 / 10</option>
+              <option value="5">6 / 10</option>
+              <option value="6">7 / 10</option>
+              <option value="7">8 / 10</option>
+              <option value="8">9 / 10</option>
+              <option value="9">10 / 10</option>
+          </select>
+        </div>
+        <button class="button is-rounded" id="method-next" type="button" aria-controls="method-slides">
+          <span>Next</span><span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <p class="is-sr-only" id="method-status" role="status" aria-live="polite" aria-atomic="true"></p>
+    </div>
+    <p class="method-instructions has-text-centered has-text-grey is-size-7" id="method-instructions">
+      Click a slide to open a larger version in a new tab.
+    </p>
+    <div class="method-download has-text-centered">
+      <a href="./static/pdfs/CVPR2026_SfD_method.pdf" download
+         class="button is-normal is-rounded is-dark">
+        <span class="icon" aria-hidden="true"><i class="fas fa-file-pdf"></i></span>
+        <span>Download method slides (PDF)</span>
+      </a>
     </div>
   </div>
 </section>
