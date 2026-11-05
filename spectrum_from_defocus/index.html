@@ -292,11 +292,26 @@
 </section>
 
 
-<section class="section section-bg-darker">
+<section class="section section-bg-darker" id="poster" aria-labelledby="poster-title">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Poster</h2>
-    <div class="content">
-      <p class="has-text-centered">Coming soon.</p>
+    <h2 class="title is-3 has-text-centered" id="poster-title">Poster</h2>
+    <figure class="poster-figure">
+      <a class="poster-preview" href="./static/images/CVPR2026-web.jpg"
+         target="_blank" rel="noopener noreferrer" aria-label="View a larger version of the CVPR 2026 poster (opens in a new tab)">
+        <img src="./static/images/CVPR2026-preview.jpg"
+             alt="CVPR 2026 poster for Spectrum from Defocus, presenting the optical design, reconstruction algorithm, and hyperspectral imaging results."
+             width="2400" height="1200" loading="lazy" decoding="async">
+      </a>
+      <figcaption class="poster-caption has-text-centered has-text-grey is-size-7">
+        Click the poster to open a larger version in a new tab.
+      </figcaption>
+    </figure>
+    <div class="poster-actions has-text-centered">
+      <a href="./static/images/CVPR2026.jpg" download
+         class="button is-normal is-rounded is-dark">
+        <span class="icon" aria-hidden="true"><i class="fas fa-download"></i></span>
+        <span>Download original (51 MB)</span>
+      </a>
     </div>
   </div>
 </section>

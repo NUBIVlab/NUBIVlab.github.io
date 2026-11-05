@@ -6,6 +6,38 @@ body {
   background-color: #f0f0f0;
 }
 
+.poster-figure {
+  margin: 0;
+}
+
+.poster-preview {
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  cursor: zoom-in;
+}
+
+.poster-preview:focus-visible {
+  outline: 3px solid #3273dc;
+  outline-offset: 5px;
+}
+
+.poster-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.poster-caption {
+  margin-top: 0.75rem;
+}
+
+.poster-actions {
+  margin-top: 1rem;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
