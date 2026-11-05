@@ -73,25 +73,13 @@ body {
   margin-top: 0.75rem;
 }
 
-.method-download {
-  margin-top: 1rem;
-}
-
-.method-download .button {
-  max-width: 100%;
-  height: auto;
-  min-height: 44px;
-  white-space: normal;
-}
-
 @media (max-width: 480px) {
   .method-controls {
     gap: 0.5rem;
   }
 
   .method-controls .button,
-  .method-controls select,
-  .method-download .button {
+  .method-controls select {
     font-size: 0.875rem;
   }
 
@@ -126,10 +114,6 @@ body {
 
 .poster-caption {
   margin-top: 0.75rem;
-}
-
-.poster-actions {
-  margin-top: 1rem;
 }
 
 
