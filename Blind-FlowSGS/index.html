@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Probabilistic Inversion of Strong Gravitational Lenses with Flow Matching Priors.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Probabilistic Inversion of Strong Gravitational Lenses with Flow Matching Priors</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="//common.northwestern.edu/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="font-size: 2.75rem;">Probabilistic Inversion of Strong
+              Gravitational Lenses with Flow
+              Matching Priors</h1>
+            <h2 class="subtitle is-4" style="margin-top: 1em; font-weight: bold; color: #6c6c6c;">
+              <em>The 9th Workshop on Machine Learning and the Physical Sciences (ML4PS), 2026</em>
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://lukeli0425.github.io/">Tianao Li</a><sup>1,5</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=01eCmXQAAAAJ&hl=en">Jimena
+                  González</a><sup>1,5</sup>,</span>
+              <span class="author-block">
+                <a href="https://palfeng.github.io/">Xinfeng Xu</a><sup>1,3,5</sup>,</span>
+              <span class="author-block">
+                <a href="https://sites.northwestern.edu/ivpl/">Aggelos K. Katsaggelos</a><sup>1,4</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://willett.psd.uchicago.edu/">Rebecca Willett</a><sup>2,5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://aleksandraciprijanovic.wordpress.com/">Aleksandra
+                  Ćiprijanović</a><sup>2,4,5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://tstarkenburg.github.io/">Tjitske Starkenburg</a><sup>1,5</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1,5</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Northwestern University,</span>
+              <span class="author-block"><sup>2</sup>University of Chicago,</span>
+              <span class="author-block"><sup>3</sup>Zhejiang University,</span>
+              <br>
+              <span class="author-block"><sup>4</sup>Fermi National Accelerator Laboratory,</span>
+              <span class="author-block"><sup>5</sup>NSF-Simons AI Institute for the Sky (SkAI)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Fill in the links below once the camera-ready, arXiv posting, and code release are available. -->
+                <!-- PDF Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span> -->
+                <!-- arXiv Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <figure class="teaser-figure" style="margin: 0 auto; text-align: left;">
+          <img src="images/blind_flowsgs_method.png" alt="Overview of the Blind-FlowSGS sampler"
+            style="max-width:100%; height:auto; border-radius: 8px;">
+          <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+            <b>A high-level overview of <span class="dnerf">Blind-FlowSGS</span>, a principled blind posterior sampler
+              using flow matching as a plug-and-play prior.</b>
+            Our method iterates between a source image likelihood step, a source image prior step, a lens mass
+            likelihood step, and a lens mass prior step.
+            We show sampling trajectories of the source galaxy on the right.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Strong gravitational lensing reveals important information about the universe, but reconstructing the
+              source image and lens properties requires solving an ill-posed inverse imaging problem.
+              Generative image models serve as powerful data-driven priors in Bayesian inverse problems.
+              Diffusion models have been used widely, but they are computationally costly.
+              Flow matching has emerged as a promising alternative to diffusion models, with the advantage of
+              straighter probability paths that enable easier training, efficient sampling, and better-quality data
+              generation.
+              In this work, we present <b>Blind-FlowSGS</b>, a principled blind posterior sampling method using flow
+              matching priors, enabling efficient posterior sampling for non-blind and blind inversion of strong
+              gravitational lenses.
+              On simulated Euclid data, we demonstrate our method's improvement over diffusion-based methods in both
+              efficacy and efficiency.
+              Our method shows promising capabilities to accurately process strong lensing data from modern sky surveys
+              at scale.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>@article{li2026probabilistic,
+    author    = {Li, Tianao and Gonz\'alez, Jimena and Xu, Xinfeng and Katsaggelos, Aggelos K. and Willett, Rebecca and \'Ciprijanovi\'c, Aleksandra and Starkenburg, Tjitske and Alexander, Emma},
+    title     = {Probabilistic Inversion of Strong Gravitational Lenses with Flow Matching Priors},
+    booktitle = {The 9th Workshop on Machine Learning and the Physical Sciences (ML4PS)},
+    year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <section class="section" id="Acknowledgements">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      <p class="has-text-justified">
+        We gratefully acknowledge the support of the NSF-Simons AI Institute for the Sky (SkAI) via grants NSF
+        AST-2421845 and Simons Foundation MPS-AI-00010513.
+        This material is based upon work supported by the U.S. National Science Foundation under Award No. 2542022.
+        This research used the Delta advanced computing and data resource, which is supported by the National Science
+        Foundation (award OAC 2005572) and the State of Illinois.
+        Delta is a joint effort of the University of Illinois Urbana-Champaign and its National Center for
+        Supercomputing Applications.
+        This work was produced by Fermi Forward Discovery Group, LLC under Contract No. 89243024CSC000002 with the U.S.
+        Department of Energy, Office of Science, Office of High Energy Physics.
+        The authors would like to thank <a href="https://sunyumark.github.io/">Yu Sun</a> for helpful discussions.
+      </p>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://lukeli0425.github.io/">
+          <i class="fas fa-home"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template from <a href="https://nerfies.github.io/">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
