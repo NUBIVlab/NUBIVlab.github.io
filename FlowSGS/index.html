@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="FlowSGS: Improving Flow Priors for Inverse Imaging with Stochastic Interpolants.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FlowSGS: Improving Flow Priors for Inverse Imaging with Stochastic Interpolants</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="//common.northwestern.edu/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title" style="font-size: 2.75rem;">FlowSGS: Improving Flow Priors for
+              Inverse Imaging with Stochastic Interpolants</h1>
+            <h2 class="subtitle is-4" style="margin-top: 1em; font-weight: bold; color: #6c6c6c;">
+              <em>arXiv preprint, 2026</em>
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://lukeli0425.github.io/">Tianao Li</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/xinhuiqian/">Xinhui Qian</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.alexander.vision/">Emma Alexander</a><sup>1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Northwestern University,</span>
+              <span class="author-block"><sup>2</sup>NSF-Simons AI Institute for the Sky (SkAI)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2609.20769" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- arXiv link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2609.20769" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code link. Placeholder: set href, remove `disabled` and "(coming soon)" once available. -->
+                <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark" disabled
+                    title="Coming soon" aria-disabled="true" onclick="return false;">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (coming soon)</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <figure class="teaser-figure" style="margin: 0 auto; text-align: left;">
+          <!-- Panels (a) and (b) of Fig. 1; flex-grow is set to each image's aspect ratio so both share one height. -->
+          <div style="display: flex; align-items: flex-end; gap: 1%;">
+            <img src="images/flowsgs_teaser.png" alt="Overview of the FlowSGS sampler and its sampling trajectories"
+              style="flex: 2.544 1 0; min-width: 0; width: 100%; height: auto;">
+            <img src="images/flowsgs_tradeoff.png" alt="LPIPS versus sampling time for motion deblurring"
+              style="flex: 1.051 1 0; min-width: 0; width: 100%; height: auto;">
+          </div>
+          <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+            <b>A high-level overview of <span class="dnerf">FlowSGS</span>, a principled posterior sampler using flow
+              matching as a plug-and-play prior.</b>
+            (a) Our method iterates between a <span style="color: #2fbf2f;">likelihood step</span> and a
+            <span style="color: #8a2be2;">prior step</span>, where the former uses proximal sampling or Langevin
+            dynamics as appropriate to the problem, and the latter involves solving a reverse-time SDE using a
+            pretrained flow prior.
+            (b) Our method achieves high efficiency with flow priors, here averaged across 100 samples of motion
+            deblurring.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Flow matching has emerged as the state-of-the-art generative model and has been used for plug-and-play
+              (PnP) priors to solve inverse problems in computational imaging.
+              However, existing flow-based inverse solvers make simplifying approximations in posterior sampling and/or
+              assume linear forward models.
+              In contrast, principled diffusion-based methods exist but are computationally expensive.
+              To circumvent these problems, we introduce <b>FlowSGS</b>, a flow-based posterior sampling method using
+              Split Gibbs Sampling (SGS) with annealed coupling, and make flow-specific interventions to the prior
+              sampling and annealing steps, theoretically grounded in the Stochastic Interpolants (SI) framework.
+              Using a novel timestep correction and accelerated warm-up with one-step flow models, our method is faster
+              and more accurate than the state of the art across a range of imaging problems.
+              We demonstrate the first use of flow-based samplers for a nonlinear inverse problem (Fourier phase
+              retrieval) and apply one-step flow models to principled Bayesian inverse imaging.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <!-- Fig. 2 -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="content"><h2 class="title">Toy Problem</h2></div>
+      <figure style="margin: 0 auto; text-align: left;">
+        <img src="images/flowsgs_toy.png" alt="Posterior means and standard deviations on a toy compressed-sensing problem"
+          style="max-width: 100%; height: auto;">
+        <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+          <b>Results on a toy compressed-sensing problem with an analytically available Gaussian posterior.</b>
+          We show the mean image (row 1) and pixel-wise standard deviations (row 2) for the Gaussian posteriors.
+          Our method estimates an accurate posterior with the lowest KL divergence compared to the true posterior.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- Fig. 3 -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="content"><h2 class="title">Linear Inverse Problems</h2></div>
+      <figure style="margin: 0 auto; text-align: left;">
+        <img src="images/flowsgs_linear_deblur.png" alt="Motion deblurring results"
+          style="display: block; max-width: 100%; height: auto;">
+        <img src="images/flowsgs_linear_sr.png" alt="Super-resolution results"
+          style="display: block; max-width: 100%; height: auto;">
+        <img src="images/flowsgs_linear_mri.png" alt="Cartesian MRI reconstruction results"
+          style="display: block; max-width: 100%; height: auto;">
+        <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+          <b>Visual results on linear inverse problems.</b>
+          We draw 8 posterior samples for each method and report the mean image.
+          More results are shown in the paper.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- Fig. 4 -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="content"><h2 class="title">Nonlinear Fourier Phase Retrieval</h2></div>
+      <figure style="margin: 0 auto; text-align: left;">
+        <img src="images/flowsgs_fpr.png" alt="Bimodal posterior samples and pixel histograms for Fourier phase retrieval"
+          style="max-width: 100%; height: auto;">
+        <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+          <b>Bimodal posterior for nonlinear Fourier phase retrieval.</b>
+          With each method, we draw 512 samples and classify them into two modes.
+          We compute the mean image using the top 25% images for each mode, and show the histograms for a pixel in the
+          red channel (marked by red dots).
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <!-- Fig. 5 -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="content"><h2 class="title">Ablation Studies</h2></div>
+      <figure style="margin: 0 auto; text-align: left;">
+        <!-- Panels (a)-(c); flex-grow is set to each image's aspect ratio so all three share one height. -->
+        <div style="display: flex; align-items: flex-end; gap: 1%;">
+          <img src="images/flowsgs_timestep_correction.png" alt="Illustration of the timestep correction"
+            style="flex: 1.403 1 0; min-width: 0; width: 100%; height: auto;">
+          <img src="images/flowsgs_ablation.png" alt="Motion deblurring results when ablating each intervention"
+            style="flex: 1.115 1 0; min-width: 0; width: 100%; height: auto;">
+          <img src="images/flowsgs_steps.png" alt="LPIPS versus number of discretization steps"
+            style="flex: 1.046 1 0; min-width: 0; width: 100%; height: auto;">
+        </div>
+        <figcaption style="font-size: 1rem; color: #555; margin-top: 0.5em;">
+          <b>Timestep-correction and one-step flow models enable efficient sampling.</b>
+          (a) Illustration of <span class="dnerf">FlowSGS</span>'s robust timestep correction to reduce discretization
+          error.
+          (b) Ablating our interventions decreases image quality on motion deblurring. See ground truth in the linear
+          inverse problem results above.
+          (c) Removing the timestep correction (dashed purple) limits reconstruction performance for lower
+          discretization step counts <i>N</i>.
+          For small <i>N</i>, the timestep correction improvement (dashed purple to purple) is on the same order as the
+          diffusion-to-flow improvement (blue to dashed purple).
+          All experiments here are done with motion deblurring, averaged over 100 test samples (error bars show standard
+          deviations).
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>@article{li2026flowsgs,
+    author  = {Li, Tianao and Qian, Xinhui and Alexander, Emma},
+    title   = {FlowSGS: Improving Flow Priors for Inverse Imaging with Stochastic Interpolants},
+    journal = {arXiv preprint arXiv:2609.20769},
+    year    = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <section class="section" id="Acknowledgements">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgements</h2>
+      <p class="has-text-justified">
+        We gratefully acknowledge the support of the <a href="https://skai-institute.org">NSF-Simons AI Institute
+          for the Sky (SkAI)</a> via grants NSF AST-2421845 and <a href="https://www.simonsfoundation.org">Simons
+          Foundation</a> MPS-AI-00010513.
+        This material is based upon work supported by the U.S. National Science Foundation under Award No. 2542022.
+        This research used the Delta advanced computing and data resource, which is supported by the National Science
+        Foundation (award OAC 2005572) and the State of Illinois.
+        Delta is a joint effort of the University of Illinois Urbana-Champaign and its National Center for
+        Supercomputing Applications.
+        The authors would like to thank <a href="https://sunyumark.github.io/">Yu Sun</a>,
+        <a href="https://github.com/FizzzFizzz">Deliang Wei</a>,
+        <a href="https://willett.psd.uchicago.edu/">Rebecca Willett</a>, and
+        <a href="https://tstarkenburg.github.io/">Tjitske Starkenburg</a> for helpful discussions, and three anonymous
+        reviewers for insightful feedback.
+      </p>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template from <a href="https://nerfies.github.io/">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
